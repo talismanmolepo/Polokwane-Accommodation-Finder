@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polokwane Student Accommodation - Find Your Ideal Home</title>
     
-     <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome Icons -->
@@ -57,6 +57,7 @@
         }
         .line-clamp-2 {
             display: -webkit-box;
+            line-clamp: 2;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
@@ -429,20 +430,20 @@
 
                         <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Full Name</label>
-                                <input type="text" required placeholder="e.g. Thabo Mbeki" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1" id="full_name_label">Full Name</label>
+                                <input type="text" id="full_name_message"  required placeholder="e.g. Thabo Mbeki" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
-                                <input type="email" required placeholder="name@student.ac.za" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1" id="email_label">Email Address</label>
+                                <input type="email" id="email_message" required placeholder="name@student.ac.za" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Phone Number</label>
-                                <input type="tel" required placeholder="071 234 5678" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1" id="phone_label">Phone Number</label>
+                                <input type="tel" id="phone_message" required placeholder="071 234 5678" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Message</label>
-                                <textarea rows="4" required placeholder="Tell us what suburb or budget you are looking for..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1" id="message_label">Message</label>
+                                <textarea rows="4" id="message_message" required placeholder="Tell us what suburb or budget you are looking for..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
                             </div>
                             <button type="submit" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl transition-colors shadow">
                                 Submit Enquiry
@@ -574,12 +575,12 @@
 
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Intended Move-In Date</label>
-                    <input type="date" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    <input type="date" id="book-move-in-date" required class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Payment Method</label>
-                    <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    <select id="book-payment-method" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
                         <option value="nsfas">NSFAS Bursary Funded</option>
                         <option value="private">Private Cash / Parent Transfer</option>
                         <option value="other">Other Bursary Scheme</option>
@@ -645,447 +646,36 @@
     </footer>
 
     <script>
-        // 39 ACCOMMODATION LISTINGS DATA FOR POLOKWANE NEIGHBORHOODS
-        const properties = [
-            {
-                id: 1,
-                title: "Flora Park Executive Student Residence",
-                location: "Flora Park",
-                type: "Single Room",
-                price: 3200,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80",
-                description: "Spacious fully-furnished single bedroom located 5 minutes walk to shopping centers and taxi routes to UL and TUT.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 2,
-                title: "Serala View Student Haven",
-                location: "Serala View",
-                type: "Sharing Room",
-                price: 2400,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80",
-                description: "Comfortable two-bed sharing room with individual study desks, high-speed fibre internet, and solar power backup.",
-                wifi: true, laundry: true, parking: false, braai: true, security: true
-            },
-            {
-                id: 3,
-                title: "Bendor Luxury Student Studio",
-                location: "Bendor",
-                type: "Bachelor Studio",
-                price: 4500,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-                description: "Modern private studio apartment featuring ensuite bathroom, kitchenette, and electric perimeter security.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 4,
-                title: "Fauna Park Student Heights",
-                location: "Fauna Park",
-                type: "Single Room",
-                price: 3100,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-                description: "Quiet study environment with communal kitchen, quiet study hall, and 24-hour security guards.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 5,
-                title: "Polokwane CBD Scholar Hub",
-                location: "Polokwane CBD",
-                type: "Sharing Room",
-                price: 2200,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80",
-                description: "Central town location close to Capricorn TVET College and TUT Polokwane main entrance.",
-                wifi: true, laundry: true, parking: false, braai: false, security: true
-            },
-            {
-                id: 6,
-                title: "Seshego Zone 1 Student Complex",
-                location: "Seshego",
-                type: "Single Room",
-                price: 2100,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
-                description: "Affordable accredited accommodation with transport links directly to central campuses.",
-                wifi: true, laundry: false, parking: true, braai: true, security: true
-            },
-            {
-                id: 7,
-                title: "Sterpark Premier Student Manor",
-                location: "Sterpark",
-                type: "1 Bedroom Apartment",
-                price: 4800,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80",
-                description: "Exclusive single-occupancy flatlet with premium finishes, private balcony, and DSTV connections.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 8,
-                title: "Eduan Park Villa",
-                location: "Eduan Park",
-                type: "Single Room",
-                price: 3300,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-                description: "Friendly student house featuring garden green space, braai area, and daily communal cleaning.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 9,
-                title: "Ivy Park Student Lodge",
-                location: "Ivy Park",
-                type: "Sharing Room",
-                price: 2300,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
-                description: "Budget friendly double sharing unit fully fitted with lockers, study lamps, and gas stove cookers.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 10,
-                title: "Thornhill Student Suites",
-                location: "Thornhill",
-                type: "Bachelor Studio",
-                price: 4400,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=80",
-                description: "Modern studio close to Thornhill Shopping Centre with automated access gates and uncapped wifi.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 11,
-                title: "Welgelegen House of Study",
-                location: "Welgelegen",
-                type: "Single Room",
-                price: 3400,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
-                description: "Peaceful neighborhood residence equipped with backup water tanks, security cameras, and study desk.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 12,
-                title: "Annadale Campus Close Lodge",
-                location: "Annadale",
-                type: "Sharing Room",
-                price: 2000,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80",
-                description: "Economical shared room near major taxi hubs and public transport terminals in Polokwane.",
-                wifi: true, laundry: false, parking: true, braai: false, security: true
-            },
-            {
-                id: 13,
-                title: "Penina Park Student Residence",
-                location: "Penina Park",
-                type: "Single Room",
-                price: 3000,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1540518614846-7ede433c5172?auto=format&fit=crop&w=800&q=80",
-                description: "Comfortable private room in a secure gated street close to Polokwane Golf Course.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 14,
-                title: "Flora Park Green Gardens",
-                location: "Flora Park",
-                type: "Bachelor Studio",
-                price: 3900,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80",
-                description: "Self-contained bachelor pad with private shower, kitchenette, and DSTV connection.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 15,
-                title: "Flora Park Central Court",
-                location: "Flora Park",
-                type: "Sharing Room",
-                price: 2500,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
-                description: "Neat twin sharing room in popular student complex with biometric front door locks.",
-                wifi: true, laundry: true, parking: false, braai: true, security: true
-            },
-            {
-                id: 16,
-                title: "Serala View Crest Flatlet",
-                location: "Serala View",
-                type: "1 Bedroom Apartment",
-                price: 4600,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80",
-                description: "Stylish 1-bedroom unit ideal for postgraduates wanting peace and private kitchen facilities.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 17,
-                title: "Serala View Campus Nest",
-                location: "Serala View",
-                type: "Single Room",
-                price: 3250,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
-                description: "Fully furnished single room with weekly cleaning included and uncapped 100Mbps fibre.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 18,
-                title: "Bendor Corner Residence",
-                location: "Bendor",
-                type: "Single Room",
-                price: 3500,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-                description: "Secure perimeter residence located close to Cycad Shopping Centre with backup generator power.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 19,
-                title: "Bendor Heights Student Flats",
-                location: "Bendor",
-                type: "Sharing Room",
-                price: 2600,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-                description: "Spacious 2-sleeper room with fitted wardrobes and large desks.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 20,
-                title: "Fauna Park Palms",
-                location: "Fauna Park",
-                type: "Bachelor Studio",
-                price: 4100,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-                description: "Private bachelor flat with ensuite toilet, shower, and built-in hot plate cookers.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 21,
-                title: "Polokwane CBD Metro House",
-                location: "Polokwane CBD",
-                type: "Single Room",
-                price: 2900,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80",
-                description: "Walking distance to supermarkets and major student transport lines across Polokwane.",
-                wifi: true, laundry: true, parking: false, braai: false, security: true
-            },
-            {
-                id: 22,
-                title: "Polokwane CBD Plaza Rooms",
-                location: "Polokwane CBD",
-                type: "Sharing Room",
-                price: 2100,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80",
-                description: "Affordable accredited sharing room for students on a budget seeking central accessibility.",
-                wifi: true, laundry: false, parking: false, braai: false, security: true
-            },
-            {
-                id: 23,
-                title: "Seshego Zone 2 Student Village",
-                location: "Seshego",
-                type: "Sharing Room",
-                price: 1950,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80",
-                description: "Highly social student community setting with communal TV lounge and study area.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 24,
-                title: "Seshego Zone 4 Manor",
-                location: "Seshego",
-                type: "Single Room",
-                price: 2300,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-                description: "Quiet single rooms with study desk, book shelving, and communal gas kitchen.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 25,
-                title: "Sterpark Oasis Apartments",
-                location: "Sterpark",
-                type: "Bachelor Studio",
-                price: 4300,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=80",
-                description: "Upscale studio room equipped with microwave, fridge, and air conditioning.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 26,
-                title: "Eduan Park Heights",
-                location: "Eduan Park",
-                type: "Sharing Room",
-                price: 2450,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
-                description: "Clean shared room with separate single beds and individual study space.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 27,
-                title: "Ivy Park Oasis",
-                location: "Ivy Park",
-                type: "Single Room",
-                price: 2800,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
-                description: "Quiet residential setting with solar backup lighting during loadshedding.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 28,
-                title: "Thornhill Executive Residence",
-                location: "Thornhill",
-                type: "1 Bedroom Apartment",
-                price: 4900,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=80",
-                description: "Spacious private apartment featuring fully equipped kitchen, lounge, and private bathroom.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 29,
-                title: "Welgelegen Student Lodge",
-                location: "Welgelegen",
-                type: "Sharing Room",
-                price: 2500,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80",
-                description: "Two sleeper room with study desks and high security electric fencing.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 30,
-                title: "Flora Park Sunburst House",
-                location: "Flora Park",
-                type: "Single Room",
-                price: 3350,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1540518614846-7ede433c5172?auto=format&fit=crop&w=800&q=80",
-                description: "Bright and airy single bedroom in established quiet suburb close to food outlets.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 31,
-                title: "Serala View Garden Studios",
-                location: "Serala View",
-                type: "Bachelor Studio",
-                price: 4200,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-                description: "Modern self-catering studio with private entrance and shade-net parking bay.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 32,
-                title: "Bendor Scholar Haven",
-                location: "Bendor",
-                type: "Single Room",
-                price: 3600,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80",
-                description: "NSFAS accredited single room with high speed internet and weekly cleaning service.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 33,
-                title: "Fauna Park Executive Flat",
-                location: "Fauna Park",
-                type: "1 Bedroom Apartment",
-                price: 4700,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=800&q=80",
-                description: "Private flatlet with separate bedroom, open plan kitchenette, and private garden patio.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 34,
-                title: "Polokwane CBD Union House",
-                location: "Polokwane CBD",
-                type: "Single Room",
-                price: 2950,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
-                description: "Conveniently located single room with access control and communal laundry area.",
-                wifi: true, laundry: true, parking: false, braai: false, security: true
-            },
-            {
-                id: 35,
-                title: "Seshego Zone 3 House",
-                location: "Seshego",
-                type: "Single Room",
-                price: 2200,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-                description: "Homely setup in Seshego with DSTV in common room and fully fenced yard.",
-                wifi: true, laundry: false, parking: true, braai: true, security: true
-            },
-            {
-                id: 36,
-                title: "Eduan Park Eco House",
-                location: "Eduan Park",
-                type: "Single Room",
-                price: 3100,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
-                description: "Eco-friendly residence with solar geysers and borehole water backup supply.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 37,
-                title: "Flora Park Campus Corner",
-                location: "Flora Park",
-                type: "Sharing Room",
-                price: 2400,
-                nsfas: true,
-                image: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80",
-                description: "Twin room with study desks, private wardrobes, and shared full bathroom.",
-                wifi: true, laundry: true, parking: true, braai: false, security: true
-            },
-            {
-                id: 38,
-                title: "Bendor Green Park Villa",
-                location: "Bendor",
-                type: "Bachelor Studio",
-                price: 4350,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-                description: "Upmarket studio flat with private kitchen stove and covered car park.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            },
-            {
-                id: 39,
-                title: "Flora Park Prestige Residence",
-                location: "Flora Park",
-                type: "1 Bedroom Apartment",
-                price: 4600,
-                nsfas: false,
-                image: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80",
-                description: "Luxury student flat with dedicated study room, lounge, and private bathroom.",
-                wifi: true, laundry: true, parking: true, braai: true, security: true
-            }
-        ];
+       
+        let properties = [];
 
         // STATE VARIABLES
         let favorites = [];
         let currentActiveProperty = null;
 
         // INITIALIZATION
-        window.addEventListener('DOMContentLoaded', () => {
-            renderListings(properties);
+        window.addEventListener('DOMContentLoaded', async () => {
+            
             updateFavoriteCounter();
+
+            try {
+                const response = await fetch('/api/properties');
+
+                if (!response.ok) {
+                    throw new Error('Failed to load properties');
+
+
+                }
+
+                properties = await response.json();
+                renderListings(properties);
+
+            } catch (error) {
+                console.error(error);
+                showToast('Could not load properties. Please try again.');
+
+            }
+
         });
 
         // CLIENT-SIDE ROUTER NAVIGATION
@@ -1371,19 +961,81 @@
             document.getElementById('booking-modal').classList.add('hidden');
         }
 
-        function handleBookingSubmit(event) {
+        async function handleContactSubmit(event) 
+        {
+            
             event.preventDefault();
-            const name = document.getElementById('book-name').value;
-            closeBookingModal();
-            showToast(`Thank you ${name}! Your booking request for ${currentActiveProperty.title} has been submitted.`);
-            document.getElementById('booking-form').reset();
+            
+            const enquiry = {
+                fullName: document.getElementById('contact-name').value.trim(),
+                emailAddress: document.getElementById('contact-email').value.trim(),
+                phoneNumber: document.getElementById('contact-phone').value.trim(),
+                messageText: document.getElementById('contact-message').value.trim()
+            };
+            
+
+            try {
+                const response = await fetch('/api/enquiries', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(enquiry)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.message);
+                }
+
+                showToast('Your enquiry has been saved!');
+                document.getElementById('contact-form').reset();
+            } catch (error) {
+                console.error(error);
+                showToast(error.message || 'Could not save your enquiry.');
+            }
         }
 
-        function handleContactSubmit(event) {
+
+        async function handleBookingSubmit(event) {
             event.preventDefault();
-            showToast("Message sent! A Polokwane housing agent will contact you shortly.");
-            document.getElementById('contact-form').reset();
+        
+            if (!currentActiveProperty) {
+                showToast('Please select an accommodation first.');
+                return;
+            }
+        
+            const booking = {
+                fullName: document.getElementById('book-name').value.trim(),
+                phoneNumber: document.getElementById('book-phone').value.trim(),
+                emailAddress: document.getElementById('book-email').value.trim(),
+                propertyId: currentActiveProperty.id,
+                moveInDate: document.getElementById('book-date').value,
+                paymentMethod: document.getElementById('book-payment').value
+            };
+        
+            try {
+                const response = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(booking)
+                });
+            
+                const result = await response.json();
+            
+                if (!response.ok) {
+                    throw new Error(result.message);
+                }
+            
+                closeBookingModal();
+                showToast('Your booking request has been saved!');
+                document.getElementById('booking-form').reset();
+            } catch (error) {
+                console.error(error);
+                showToast(error.message || 'Could not save your booking.');
+            }
         }
+
+
 
         // TOAST NOTIFICATIONS
         function showToast(message) {
