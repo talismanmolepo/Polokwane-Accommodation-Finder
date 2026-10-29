@@ -151,7 +151,7 @@ The database login must exist, have permission to access the project database, a
 
 If your project uses Windows Authentication instead, follow the integrated-authentication configuration supported by your Node.js database driver rather than using the SQL login example above.
 
-### Step 5: Protect sensitive information
+ Step 5: Protect sensitive information
 
 Create or update the `.gitignore` file in the project root:
 
@@ -166,7 +166,7 @@ Never upload actual database passwords or other private credentials to GitHub.
 
 You may provide an `.env.example` file containing placeholder values to help other group members configure their own environments.
 
-### Step 6: Run the application
+ Step 6: Run the application
 
 Start the backend using the command that matches your project's configuration.
 
@@ -184,7 +184,7 @@ npm start
 
 Use the address and port printed by the application to open the website, provided the front end is served by the backend or configured to run separately.
 
-## 8. API Routes
+ 8. API Routes
 
 The planned API routes include:
 
@@ -196,7 +196,7 @@ The planned API routes include:
 
 These routes must be implemented in the Express backend and connected to the appropriate database queries before they will work as intended.
 
-## 9. Testing
+ 9. Testing
 
 The group should test the following areas:
 
@@ -208,7 +208,7 @@ The group should test the following areas:
 - **Error handling:** Test missing fields, invalid input and database connection failures.
 - **Integration testing:** Verify that the front end, backend and database work together.
 
-## 10. Security Considerations
+ 10. Security Considerations
 
 The project should follow these security practices:
 
@@ -219,7 +219,7 @@ The project should follow these security practices:
 - Avoid displaying database credentials or sensitive internal errors to users.
 - Store only the personal information required by the application.
 
-## 11. Group Collaboration
+11. Group Collaboration
 
 GitHub is used to share source code and track changes made by group members.
 
@@ -234,7 +234,7 @@ To contribute to the project:
 
 Each group member may need their own local database configuration. Using GitHub does not automatically share a running SQL Server database.
 
-## 12. Limitations and Future Improvements
+12. Limitations and Future Improvements
 
 Possible future improvements include:
 
@@ -248,15 +248,14 @@ Possible future improvements include:
 
 These improvements should only be described as completed features once they have been implemented and tested.
 
-## 13. Conclusion
+13. Conclusion
 
 Polokwane Student Living aims to provide a convenient platform for students searching for accommodation in Polokwane. The project combines web technologies with a backend application and a relational database to manage property information, booking requests and enquiries.
 
 The project also provides an opportunity to apply software engineering concepts such as database design, application development, system integration, testing, security and collaborative version control.
 
----
 
-**Project:** Polokwane Student Living  
-**Course:** Software Design and Engineering  
-**Group:** Group 5  
-**Repository:** Add the group's GitHub repository URL here.
+Project: Polokwane Student Living  
+Course: Software Design and Engineering  
+Group: Group 5  
+
